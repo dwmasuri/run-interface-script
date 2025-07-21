@@ -2,7 +2,7 @@ name: Run Python Script Every Night
 
 on:
   schedule:
-    - cron: '25 20 * * *'  # ריצה כל יום ב-23:25 לפי שעון ישראל (20:25 UTC)
+    - cron: '25 20 * * *'   # כל יום בשעה 23:25 לפי ישראל (20:25 UTC)
   workflow_dispatch:
 
 jobs:
@@ -16,6 +16,11 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas openpyxl
 
       - name: Run generate_files.py
         run: python generate_files.py
