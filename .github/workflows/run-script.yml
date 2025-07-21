@@ -19,3 +19,5 @@ jobs:
 
       - name: Run generate_files.py
         run: python generate_files.py
+# minor comment to trigger workflow visibility
+
